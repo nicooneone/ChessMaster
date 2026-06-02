@@ -6,9 +6,6 @@ modeled pieces, a guided "learn openings" mode, plus a **from-scratch chess
 engine** (no external chess libraries), live hints, blunder warnings, tactics
 puzzles, and full-game analysis with an evaluation graph.
 
-Everything in the rules layer, the engine, and the 3D pieces is *your own code* —
-which is exactly what makes this an impressive project to show off.
-
 ---
 
 ## Screens
