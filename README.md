@@ -104,7 +104,7 @@ src/main/java/com/chessmaster/
 
 ## Why you can trust the engine
 
-The move generator is verified with **perft** — it produces exactly the
+The move generator is verified with **perft**, it produces exactly the
 published node counts for the standard reference positions (e.g. the "Kiwipete"
 position to depth 4 = 4,085,603 nodes). The engine is tested on tactics it must
 solve (mate-in-one, winning material), and every built-in puzzle is checked for
