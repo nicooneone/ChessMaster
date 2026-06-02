@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.chessmaster</groupId>
+    <artifactId>chessmaster</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+    <name>ChessMaster</name>
+    <description>A competitive chess application with a from-scratch engine, JavaFX UI, and training tools.</description>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.release>24</maven.compiler.release>
+        <javafx.version>26.0.1</javafx.version>
+        <junit.version>5.11.3</junit.version>
+        <!-- The fully-qualified main class launched by `mvn javafx:run`. -->
+        <main.class>com.chessmaster.ui.ChessApp</main.class>
+    </properties>
+
+    <dependencies>
+        <!-- JavaFX: the UI toolkit. The classifier is filled in automatically by the
+             os-maven-plugin-less default resolution because the artifacts publish
+             platform classifiers; the javafx-maven-plugin handles the module path. -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>${javafx.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>${javafx.version}</version>
+        </dependency>
+
+        <!-- JUnit 5: unit tests (used heavily for engine correctness / perft). -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.5.2</version>
+            </plugin>
+
+            <!-- Run the app with:  mvn javafx:run   (or the green arrow in IntelliJ). -->
+            <plugin>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>0.0.8</version>
+                <configuration>
+                    <mainClass>${main.class}</mainClass>
+                    <!-- Silence the JDK 26 "restricted method" warning from JavaFX's native libs. -->
+                    <options>
+                        <option>--enable-native-access=javafx.graphics</option>
+                    </options>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
