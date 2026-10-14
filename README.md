@@ -1,4 +1,4 @@
-# ♚ ChessMaster — 3D Edition
+# ChessMaster 
 
 A full-featured and competitive chess app built entirely in Java using a **3D JavaFX UI**, including: a main menu, an orbiting 3D board with procedurally generated pieces, a guided "learn openings" mode and a **from-scratch chess engine** (no other chess libraries), live hints, blunder warnings, tactics puzzles and full game analysis with an evaluation graph.
 
